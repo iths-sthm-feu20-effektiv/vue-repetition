@@ -5,7 +5,7 @@
         </header>
     </div>
     <main>
-        <MovieList></MovieList>
+        <MovieList v-bind:list="movieList"></MovieList>
     </main>
 </template>
 
@@ -15,7 +15,23 @@ export default {
     name: 'App',
     components: {
         MovieList
-    }
+    },
+    data: () => ({
+        movieList: [
+			{
+				id: 1,
+				title: 'Pulp fiction',
+				rating: 5,
+				dateViewed: '2021-02-21'
+			},
+			{
+				id: 2,
+				title: 'Meet the feebles',
+				rating: 4,
+				dateViewed: '2020-10-11'
+			}
+		]  // list
+    })
 }
 </script>
 

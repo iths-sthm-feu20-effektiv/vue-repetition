@@ -16,22 +16,15 @@
 
 <script>
 export default {
-	props: {},
+	props: {
+		list: {
+			type: Array,
+			default: () => []
+			// required: true
+		}
+	},
 	data: () => ({
-		list: [
-			{
-				id: 1,
-				title: 'Pulp fiction',
-				rating: 5,
-				dateViewed: '2021-02-21'
-			},
-			{
-				id: 2,
-				title: 'Meet the feebles',
-				rating: 4,
-				dateViewed: '2020-10-11'
-			}
-		]  // list
+
 	})  // data
 }
 </script>
