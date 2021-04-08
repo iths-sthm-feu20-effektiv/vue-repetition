@@ -5,36 +5,17 @@
         </header>
     </div>
     <main>
-        <div class="movie-list">
-            <div class="movie-item">
-                <div>
-                    Pulp fiction
-                </div>
-                <div>
-                    Betyg: 5 <br/>
-                    2021-02-21
-                </div>
-            </div>
-        </div>
-        <div class="movie-list">
-            <div class="movie-item">
-                <div>
-                    Meet the feebles
-                </div>
-                <div>
-                    Betyg: 4 <br/>
-                    2020-10-11
-                </div>
-            </div>
-        </div>
+        <MovieList></MovieList>
     </main>
 </template>
 
 <script>
-
+import MovieList from './components/movieList/MovieList'
 export default {
     name: 'App',
-    components: { }
+    components: {
+        MovieList
+    }
 }
 </script>
 
@@ -42,19 +23,10 @@ export default {
 header {
     background-color: #DB2818;
     color: #EBAD24;
-    padding: 1.5em;
+    padding: 0.8em;
     margin: 0em;
-}
-.movie-item {
-    max-width: 40em;
-    border: 1px solid #DB2818;
-    padding: 1em;
-    margin: 0.3em;
-    display: flex;
-    /* vh, vw utgår från viewport - webbläsarens synliga område */
-}
-.movie-item > * {
-    flex: 1 1 auto;
+    font-size: 1.8em;
+    font-weight: bold;
 }
 
 #app {
@@ -66,5 +38,8 @@ header {
 }
 body {
     margin: 0em;
+    background-color: #F1B2AC;
+    color: #DB2818;
+    font-size: 1.1em;
 }
 </style>

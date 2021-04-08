@@ -15,10 +15,17 @@ It shows my favorite movies. Users can add movies and rate them.
 
 
 
-### Compiles and hot-reloads for development
+### To run
 ```
+# install npm packages
+npm install
+
+# start local development server
 npm run serve
+
+# now open in your web browser
 ```
 
-Link to Figma prototype:
+### Prototype
+Link to Figma:
 https://www.figma.com/file/HMC5bd7xpBJuWYdq3c1yXs/Vue-repetition-studerandevecka?node-id=3%3A47
