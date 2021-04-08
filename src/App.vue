@@ -8,10 +8,12 @@
 			<a @click.prevent="showList" href=""> Visa listan </a>
 		</nav>
         <MovieList
-            v-if="selectedView === MOVIE_LIST"
+            v-show="selectedView === MOVIE_LIST"
             v-bind:list="movieList"></MovieList>
         <AddMovie
-            v-if="selectedView === ADD_FORM"></AddMovie>
+            v-show="selectedView === ADD_FORM"
+            v-bind:newId="calculateNewId()"
+            @addMovie="movieAdded"></AddMovie>
     </main>
 </template>
 
@@ -48,6 +50,26 @@ export default {
             this.selectedView = this.ADD_FORM
         },
         showList() {
+            this.selectedView = this.MOVIE_LIST
+        },
+        calculateNewId() {
+            // 1. hitta största värdet i movieList
+            // 2. returnera värdet + 1
+            let maximum = this.movieList[0].id;
+            for(let i=0; i<this.movieList.length; i++) {
+                let newId = this.movieList[i].id;
+                if( newId > maximum )
+                    maximum = newId;
+            }
+            return maximum + 1;
+
+            // med reduce:
+            // let maximum = this.movieList[0].id;
+            // maximum = this.movieList.reduce((acc, cur) => Math.max(acc, cur), maximum);
+            // return maximum + 1;
+        },
+        movieAdded(movie) {
+            this.movieList.push(movie)
             this.selectedView = this.MOVIE_LIST
         }
     }
