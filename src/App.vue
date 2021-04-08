@@ -5,7 +5,7 @@
     <main>
 		<nav>
 			<a @click.prevent="showAddForm" href=""> Lägg till ny film </a>
-			<a @click.prevent="showList" href=""> Visa listan </a>
+			<a @click.prevent="showMovieList" href=""> Visa listan </a>
 		</nav>
         <MovieList
             v-show="selectedView === MOVIE_LIST"
@@ -18,6 +18,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 import MovieList from './components/movieList/MovieList'
 import AddMovie from './components/addForm/AddMovie'
 
@@ -29,7 +30,6 @@ export default {
     data: () => ({
         MOVIE_LIST: 'movie list',
         ADD_FORM: 'add form',
-        selectedView: 'add form',
         movieList: [
 			{
 				id: 1,
@@ -45,13 +45,16 @@ export default {
 			}
 		]  // list
     }),  // data
+    computed: {
+        selectedView() {
+            return this.$store.state.selectedView
+        }
+    },
     methods: {
-        showAddForm() {
-            this.selectedView = this.ADD_FORM
-        },
-        showList() {
-            this.selectedView = this.MOVIE_LIST
-        },
+        ...mapActions([
+            'showMovieList',
+            'showAddForm'
+        ]),
         calculateNewId() {
             // 1. hitta största värdet i movieList
             // 2. returnera värdet + 1
@@ -70,7 +73,7 @@ export default {
         },
         movieAdded(movie) {
             this.movieList.push(movie)
-            this.selectedView = this.MOVIE_LIST
+            // this.selectedView = this.MOVIE_LIST
         }
     }
 }
