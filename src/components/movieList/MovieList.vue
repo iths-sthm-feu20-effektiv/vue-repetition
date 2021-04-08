@@ -1,33 +1,38 @@
 <template>
 	<div class="movie-list">
-		<div class="movie-item">
+		<div class="movie-item"
+		v-for="movie in list" v-bind:key="movie.id">
 			<div>
-				Pulp fiction
+				{{ movie.title }}
 			</div>
 			<div>
-				Betyg: 5 <br/>
-				2021-02-21
-			</div>
-		</div>
-		<div class="movie-item">
-			<div>
-				Meet the feebles
-			</div>
-			<div>
-				Betyg: 4 <br/>
-				2020-10-11
+				Betyg: {{ movie.rating }} <br/>
+				{{ movie.dateViewed }}
 			</div>
 		</div>
+
 	</div>
 </template>
 
 <script>
 export default {
-	name: '',
 	props: {},
 	data: () => ({
-
-	})
+		list: [
+			{
+				id: 1,
+				title: 'Pulp fiction',
+				rating: 5,
+				dateViewed: '2021-02-21'
+			},
+			{
+				id: 2,
+				title: 'Meet the feebles',
+				rating: 4,
+				dateViewed: '2020-10-11'
+			}
+		]  // list
+	})  // data
 }
 </script>
 
