@@ -11,7 +11,8 @@ It shows my favorite movies. Users can add movies and rate them.
 3. Create Vue project, create GitHub repository
 4. Implement prototype in Vue (one component, only HTML/template)
 5. Create more components
-6. Make them intelligent
+6. For each component: make its data dynamic (data properties and computed properties)
+7. For each component: move the data to 1) other components or 2) Vuex store, as needed
 
 
 

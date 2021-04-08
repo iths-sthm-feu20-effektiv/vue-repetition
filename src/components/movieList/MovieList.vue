@@ -1,5 +1,5 @@
 <template>
-	<div class="movie-list">
+	<section class="movie-list">
 		<div class="movie-item"
 		v-for="movie in list" v-bind:key="movie.id">
 			<div>
@@ -11,7 +11,7 @@
 			</div>
 		</div>
 
-	</div>
+	</section>
 </template>
 
 <script>
